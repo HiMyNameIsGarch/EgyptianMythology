@@ -48,10 +48,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
         body: _selectedPage[selectedIndex],
         bottomNavigationBar: Padding(padding: const EdgeInsets.all(20), 
             child: Material(elevation: 10, 
+                type: MaterialType.card,
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 color: Colors.black,
                 child: Row(
