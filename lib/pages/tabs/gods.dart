@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:egyptianmythology/pages/tabs/gods/ra.dart';
 
 class Gods extends StatefulWidget {
   @override
@@ -47,16 +48,24 @@ class _GodsState extends State<Gods> {
                                     elevation: 10,
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(20)),
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                            border: Border.all(color: Colors.yellow, width: 3),
-                                            borderRadius:BorderRadius.circular(20),
-                                            image: DecorationImage(fit: BoxFit.fill,
-                                                image: AssetImage('assets/gods/${data[index]}.png'))),
+                                    child: Hero(
+                                        tag: data[index],
+                                        child: GestureDetector(
+                                            onTap: () {
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) => RaGod()));
+                                            },
+                                            child: Container(
+                                                decoration: BoxDecoration(
+                                                border: Border.all(color: Colors.yellow, width: 3),
+                                                borderRadius:BorderRadius.circular(20),
+                                                image: DecorationImage(fit: BoxFit.fill,
+                                                    image: AssetImage('assets/gods/${data[index]}.png'))),
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
-                            );
-                        }
+                                );
+                            }
                     ),
                 ),
             ]
