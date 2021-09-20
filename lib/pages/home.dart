@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter/services.dart'; use to disable status/bottom bar
 import 'package:egyptianmythology/pages/tabs/gods.dart';
 import 'package:egyptianmythology/pages/tabs/creatures.dart';
 import 'package:egyptianmythology/pages/tabs/world.dart';
@@ -9,6 +10,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   int selectedIndex = 1;
   final List<Widget> _selectedPage = [Gods(), Creatures(), World()];
   final List<IconData> data = [
@@ -17,6 +19,32 @@ class _HomeState extends State<Home> {
     Icons.garage
   ];
 
+  Container buildNavBarItem(int i) {
+      return Container(
+          height: 60,
+          width: 70,
+          child: GestureDetector(
+              onTap: () { setState(() { selectedIndex = i; }); },
+              child: AnimatedContainer(
+                  width: 40,
+                  duration: const Duration(milliseconds: 500),
+                  decoration: BoxDecoration(
+                      border: i == selectedIndex ? const Border(
+                          bottom: BorderSide(width: 2, 
+                              color: Colors.white)): null,
+                      gradient: i == selectedIndex ? LinearGradient(
+                          colors: [ Colors.grey.shade800, Colors.black ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter) : null
+                      ),
+                  child: Icon(data[i], size: 35, 
+                      color: i == selectedIndex ? 
+                      Colors.white: Colors.grey)
+                  )
+            )
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,44 +52,16 @@ class _HomeState extends State<Home> {
         body: _selectedPage[selectedIndex],
         bottomNavigationBar: Padding(padding: const EdgeInsets.all(20), 
             child: Material(elevation: 10, 
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: const BorderRadius.all(Radius.circular(15)),
                 color: Colors.black,
-                child: Container(height: 60, width: double.infinity,
-                    child: ListView.builder(
-                        itemCount: data.length,
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        itemBuilder: (ctx, i) => Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 50),
-                            child: GestureDetector(
-                                onTap: () {
-                                    setState(() {
-                                        selectedIndex = i;
-                                    });
-                                },
-                                child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 250),
-                                    width: 35,
-                                    decoration: BoxDecoration(
-                                        border: i == selectedIndex ? const Border(
-                                            bottom: BorderSide(width: 3, 
-                                                color: Colors.white)): null,
-                                        gradient: i == selectedIndex ? LinearGradient(
-                                            colors: [
-                                                Colors.grey.shade800,
-                                                Colors.black
-                                            ],
-                                            begin: Alignment.bottomCenter,
-                                            end: Alignment.topCenter
-                                        ) : null
-                                    ),
-                                    child: Icon(data[i], size: 35, 
-                                        color: i == selectedIndex ? 
-                                                    Colors.white: Colors.grey)
-                                )
-                            )
-                        ),
-                        scrollDirection: Axis.horizontal,
-                    ),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget> [
+                        buildNavBarItem(0),
+                        buildNavBarItem(1),
+                        buildNavBarItem(2),
+                    ],
                 ),
             ),
         ),
