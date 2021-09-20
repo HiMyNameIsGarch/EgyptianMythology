@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 
 class Intro extends StatefulWidget {
   @override
@@ -9,22 +10,18 @@ class _IntroState extends State<Intro> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey[200],
-        appBar: AppBar(
-            backgroundColor: Colors.blue[500],
-            title: const Text('Intro screen'),
-            centerTitle: true,
-            elevation: 0
-        ),
-        body: Center(
-            child: TextButton(
-                onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/home');
-                },
-                child: const Text('Go Home')
-            )
-        ),
+    return IntroductionScreen(
+        onDone: () {
+            Navigator.pushReplacementNamed(context, '/home');
+        },
+        isProgress: false,
+        done: const Text('done'),
+        next: const Text('next'),
+        pages: [
+           PageViewModel( title: 'First', body: 'This is the body',), 
+           PageViewModel( title: 'Second', body: 'This is the body',), 
+           PageViewModel( title: 'Third', body: 'This is the body',), 
+        ],
     );
   }
 }
