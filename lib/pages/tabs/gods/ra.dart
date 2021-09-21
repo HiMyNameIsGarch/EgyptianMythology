@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:egyptianmythology/pages/custom_dialog.dart';
 import 'package:egyptianmythology/pages/details_page.dart';
 
 class RaGod extends StatefulWidget {
@@ -8,10 +7,11 @@ class RaGod extends StatefulWidget {
 }
 
 class _RaGodState extends State<RaGod> {
-  final CustomDialog dialog = CustomDialog(title: 'Ra\'s myth', description: 'lorem ipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumloremm iipsumlorem iipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem psumlorem ipsumlorem iipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumlorempsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum');
 
   @override
   Widget build(BuildContext context) {
-      return DetailsPage.create(context, dialog, 'some shit text to test','god1', 'assets/gods/god1.png');
+      return DetailsPage.create(context, "Ra", 
+      'personificarea soarelui, cel mai puternic din toți zeii. Călătorea prin lumea subterană în fiecare noapte în nava sa, și era protejat de alti Zei. Se spune că atunci când Ra sfârșea călătoria subterană soarele răsărea din nou pe cer.',
+      'ra', 'assets/gods/ra.png');
   }
 }
