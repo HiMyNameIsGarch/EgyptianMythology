@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:egyptianmythology/pages/card_lists.dart';
+import 'package:egyptianmythology/pages/tabs/world/first.dart';
+import 'package:egyptianmythology/pages/tabs/world/second.dart';
+import 'package:egyptianmythology/pages/tabs/world/third.dart';
 
 class World extends StatefulWidget {
   @override
@@ -6,22 +10,26 @@ class World extends StatefulWidget {
 }
 
 class _WorldState extends State<World> {
+  final PageController ctrl = PageController(viewportFraction: 0.8);
+
+  List<String> data = ["first", "second", "third"];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey[200],
-        appBar: AppBar(
-            backgroundColor: Colors.blue[500],
-            title: const Text('World screen'),
-            centerTitle: true,
-            elevation: 0
-        ),
-        body: const Center(
-            child: Text('Here will be the World')
-        ),
-    );
-  }
+    return CardLists.getListOf(data, false, 'assets/world', 'Crearea Lumii', (idx) {
+            switch(idx){
+                case 0: {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => First()));
+                } break;
+                case 1: {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Second()));
+                } break;
+                case 2: {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Third()));
+                } break;
+            }
+        }, ctrl);
+    }
 }
 
 

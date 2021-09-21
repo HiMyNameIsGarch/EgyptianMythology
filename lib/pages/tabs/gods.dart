@@ -19,16 +19,6 @@ class _GodsState extends State<Gods> {
   List<String> data = [ "ra", "anubis", "bastet","horus","isis","osiris","seth" ];
 
   @override
-  void initState() {
-      super.initState();
-      ctrl.addListener(() {
-          setState(() {
-              int pageIdx = ctrl.page!.toInt();
-          });
-      });
-  }
-
-  @override
   Widget build(BuildContext context) {
       return CardLists.getListOf(data, false,'assets/gods', "Zei", (idx) {
               switch(idx){
