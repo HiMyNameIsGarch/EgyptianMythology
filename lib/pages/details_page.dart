@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:egyptianmythology/pages/custom_dialog.dart';
 import 'dart:ui';
 
 class DetailsPage {
-  static Widget create(BuildContext context, CustomDialog dialog, 
-    String bottomText, String heroTag, String imagePath) {
-    var bottomContentText = Text( bottomText,
-      style: const TextStyle(fontSize: 16.0),
+  static Widget create(BuildContext context , String title, String bottomText, 
+                        String heroTag, String imagePath) {
+
+    var bottomContentText = Text(bottomText,
+      textAlign: TextAlign.start,
+      style: const TextStyle(fontSize: 16.0, wordSpacing: 2, letterSpacing: 1),
     );
-    final readButton = Container(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () => {
-            showDialog(
-                context: context,
-                builder: (context) => dialog )
-          },
-          child: const Text("I WANNA READ THE MYTH",
-              style: TextStyle(color: Colors.white)),
-        ));
+
     final bottomContent = Container(
       height: MediaQuery.of(context).size.height * 0.55,
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-      child: Center(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
         child: SingleChildScrollView(
             child: Column(
-          children: <Widget>[bottomContentText, readButton],
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10, top: 10),
+            child: Center(child: 
+            Text(title, textAlign: TextAlign.center, style: const TextStyle(
+                fontSize: 35, fontWeight: FontWeight.w700, letterSpacing: 5))),
+          ),
+            bottomContentText],
         )),
-      ),
     );
+
     final topContent = Stack(
       children: <Widget>[
         Hero(tag: heroTag,
@@ -52,7 +49,7 @@ class DetailsPage {
             onTap: () { Navigator.pop(context); },
             child: const Icon(Icons.arrow_back, color: Colors.white),
           ),
-        )
+        ),
       ],
     );
 
