@@ -11,8 +11,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  int selectedIndex = 1;
-  final List<Widget> _selectedPage = [Gods(), Creatures(), World()];
+  int selectedIndex = 1; // Start in middle
+  final List<Widget> _selectedPage = [Gods(), World(), Creatures()];
   final List<IconData> data = [
     Icons.home_outlined,
     Icons.access_time,
