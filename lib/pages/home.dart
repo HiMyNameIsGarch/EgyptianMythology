@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart'; use to disable status/bottom bar
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:egyptianmythology/pages/tabs/gods.dart';
 import 'package:egyptianmythology/pages/tabs/myths.dart';
 import 'package:egyptianmythology/pages/tabs/creatures.dart';
@@ -15,11 +16,14 @@ class _HomeState extends State<Home> {
 
   int selectedIndex = 1; // Start in middle
   final List<Widget> _selectedPage = [Gods(), Creatures(), Myths(), World() ];
-  final List<IconData> data = [
-    Icons.home_outlined,
-    Icons.add_sharp,
-    Icons.access_time,
-    Icons.garage
+  SvgPicture getIcon(String name){
+      return SvgPicture.asset('assets/icons/$name.svg', color: CColors.brown);
+  }
+  late List<SvgPicture> data = [
+    getIcon('gods'),
+    getIcon('creatures'),
+    getIcon('myths'),
+    getIcon('world'),
   ];
 
   Container buildNavBarItem(int i) {
@@ -32,15 +36,13 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                       border: i == selectedIndex ? Border(
                           bottom: BorderSide(width: 2, 
-                              color: CColors.lace)): null,
+                              color: CColors.gold)): null,
                       gradient: i == selectedIndex ? LinearGradient(
-                          colors: [ Colors.grey.shade800, Colors.black ],
+                          colors: [ CColors.gold, Colors.transparent ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter) : null
                       ),
-                  child: Icon(data[i], size: 35, 
-                      color: i == selectedIndex ? 
-                      CColors.lace: Colors.grey)
+                  child: Padding(padding: const EdgeInsets.all(8), child: data[i])
                   )
             )
       );
