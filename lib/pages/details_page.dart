@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:egyptianmythology/resources/colors.dart';
 import 'dart:ui';
 
 class DetailsPage {
@@ -7,7 +8,8 @@ class DetailsPage {
 
     var bottomContentText = Text(bottomText,
       textAlign: TextAlign.start,
-      style: const TextStyle(fontSize: 16.0, wordSpacing: 2, letterSpacing: 1),
+      style: TextStyle(color: CColors.secondbg, fontSize: 16.0, wordSpacing: 2, 
+      letterSpacing: 1, fontFamily: 'Egypt'),
     );
 
     final bottomContent = Container(
@@ -21,8 +23,9 @@ class DetailsPage {
           Padding(
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: Center(child: 
-            Text(title, textAlign: TextAlign.center, style: const TextStyle(
-                fontSize: 35, fontWeight: FontWeight.w700, letterSpacing: 5))),
+            Text(title, textAlign: TextAlign.center, style: TextStyle(
+                fontSize: 35, fontWeight: FontWeight.w700, letterSpacing: 5, 
+                color: CColors.gold, fontFamily: 'Obelisk'))),
           ),
             bottomContentText],
         )),
@@ -47,13 +50,14 @@ class DetailsPage {
         Positioned(left: 8.0, top: 40.0,
           child: InkWell(
             onTap: () { Navigator.pop(context); },
-            child: const Icon(Icons.arrow_back, color: Colors.white),
+            child: Icon(Icons.arrow_back, color: CColors.brown),
           ),
         ),
       ],
     );
 
     return Scaffold(
+      backgroundColor: CColors.mainbg,
       body: Column(children: <Widget>[topContent, bottomContent]),
     );
   }

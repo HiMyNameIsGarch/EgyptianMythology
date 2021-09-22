@@ -12,7 +12,7 @@ class CardLists {
                 const SizedBox(height: 60,),
                 Text(title, style: TextStyle(
                     color: CColors.lace, fontWeight: FontWeight.bold, 
-                    fontSize: 35, letterSpacing: 4)),
+                    fontSize: 35, letterSpacing: 5, fontFamily: 'Isis')),
                 Expanded(
                     child: PageView.builder(
                         reverse: isReverse,

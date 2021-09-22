@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart'; use to disable status/bottom bar
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:egyptianmythology/pages/tabs/gods.dart';
 import 'package:egyptianmythology/pages/tabs/myths.dart';
@@ -17,7 +16,7 @@ class _HomeState extends State<Home> {
   int selectedIndex = 1; // Start in middle
   final List<Widget> _selectedPage = [Gods(), Creatures(), Myths(), World() ];
   SvgPicture getIcon(String name){
-      return SvgPicture.asset('assets/icons/$name.svg', color: CColors.brown);
+      return SvgPicture.asset('assets/icons/$name.svg', color: CColors.gold);
   }
   late List<SvgPicture> data = [
     getIcon('gods'),
@@ -37,8 +36,8 @@ class _HomeState extends State<Home> {
                       border: i == selectedIndex ? Border(
                           bottom: BorderSide(width: 2, 
                               color: CColors.gold)): null,
-                      gradient: i == selectedIndex ? LinearGradient(
-                          colors: [ CColors.gold, Colors.transparent ],
+                      gradient: i == selectedIndex ? const LinearGradient(
+                          colors: [ Colors.transparent, Colors.transparent ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter) : null
                       ),
