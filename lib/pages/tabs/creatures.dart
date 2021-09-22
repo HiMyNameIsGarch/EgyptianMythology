@@ -9,19 +9,18 @@ class Creatures extends StatefulWidget {
 }
 
 class _CreaturesState extends State<Creatures> {
-  final PageController ctrl = PageController(viewportFraction: 0.8);
 
   List<String> data = [ "apophis", "sfinx" ];
 
   @override
   Widget build(BuildContext context) {
-      return CardLists.getListOf(data, false, 'assets/creatures', "Creaturi", (idx) {
+      return CardLists.getListOf(data, 'assets/creatures', "Creaturi", (idx) {
               if(idx == 0){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Apophis()));
               } else if(idx == 1){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Sfinx()));
               }
-          }, ctrl);
+          });
     }
 }
 

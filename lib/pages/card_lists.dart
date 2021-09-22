@@ -3,8 +3,8 @@ import 'package:egyptianmythology/resources/colors.dart';
 
 class CardLists {
 
-    static Widget getListOf(List<String> data, bool isReverse, 
-        String baseRoute, String title, void Function(int idx) onCardTap, PageController ctrl) {
+    static Widget getListOf(List<String> data, String baseRoute, 
+        String title, void Function(int idx) onCardTap) {
       return Scaffold(
         backgroundColor: CColors.mainbg,
         body: Column(
@@ -15,8 +15,7 @@ class CardLists {
                     fontSize: 35, letterSpacing: 5, fontFamily: 'Isis')),
                 Expanded(
                     child: PageView.builder(
-                        reverse: isReverse,
-                        controller: ctrl,
+                        controller: PageController(viewportFraction: 0.8),
                         itemCount: data.length,
                         itemBuilder: (context, index) {
                             return Padding(

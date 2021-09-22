@@ -10,13 +10,12 @@ class World extends StatefulWidget {
 }
 
 class _WorldState extends State<World> {
-  final PageController ctrl = PageController(viewportFraction: 0.8);
 
   List<String> data = ["first", "second", "third"];
 
   @override
   Widget build(BuildContext context) {
-    return CardLists.getListOf(data, false, 'assets/world', 'Crearea Lumii', (idx) {
+    return CardLists.getListOf(data, 'assets/world', 'Crearea Lumii', (idx) {
             switch(idx){
                 case 0: {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => First()));
@@ -28,7 +27,7 @@ class _WorldState extends State<World> {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Third()));
                 } break;
             }
-        }, ctrl);
+        });
     }
 }
 

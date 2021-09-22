@@ -11,22 +11,11 @@ class Myths extends StatefulWidget {
 
 class _MythsState extends State<Myths> {
 
-  final PageController ctrl = PageController(viewportFraction: 0.8);
   List<String> data = [ "creation", "jealousy", "legend", ];
 
   @override
-  void initState() {
-      super.initState();
-      ctrl.addListener(() {
-          setState(() {
-              int pageIdx = ctrl.page!.toInt();
-          });
-      });
-  }
-
-  @override
   Widget build(BuildContext context) {
-      return CardLists.getListOf(data, false,'assets/myths', "Mituri", (idx) {
+      return CardLists.getListOf(data,'assets/myths', "Mituri", (idx) {
               switch(idx){
                   case 0: {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Creation()));
@@ -38,7 +27,7 @@ class _MythsState extends State<Myths> {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Legend()));
                   } break;
               }
-          }, ctrl);
+          });
   }
 }
 

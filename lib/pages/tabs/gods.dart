@@ -15,12 +15,11 @@ class Gods extends StatefulWidget {
 
 class _GodsState extends State<Gods> {
 
-  final PageController ctrl = PageController(viewportFraction: 0.8);
   List<String> data = [ "ra", "anubis", "bastet","horus","isis","osiris","seth" ];
 
   @override
   Widget build(BuildContext context) {
-      return CardLists.getListOf(data, false,'assets/gods', "Zei", (idx) {
+      return CardLists.getListOf(data,'assets/gods', "Zei", (idx) {
               switch(idx){
                   case 0: {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => RaGod()));
@@ -44,7 +43,7 @@ class _GodsState extends State<Gods> {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SethGod()));
                   } break;
               }
-          }, ctrl);
+          });
   }
 }
 

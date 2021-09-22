@@ -50,7 +50,7 @@ class DetailsPage {
         Positioned(left: 8.0, top: 40.0,
           child: InkWell(
             onTap: () { Navigator.pop(context); },
-            child: Icon(Icons.arrow_back, color: CColors.brown),
+            child: Icon(Icons.arrow_back, color: CColors.lace),
           ),
         ),
       ],
