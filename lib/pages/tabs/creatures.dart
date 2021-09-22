@@ -15,7 +15,7 @@ class _CreaturesState extends State<Creatures> {
 
   @override
   Widget build(BuildContext context) {
-      return CardLists.getListOf(data, true, 'assets/creatures', "Creaturi", (idx) {
+      return CardLists.getListOf(data, false, 'assets/creatures', "Creaturi", (idx) {
               if(idx == 0){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Apophis()));
               } else if(idx == 1){

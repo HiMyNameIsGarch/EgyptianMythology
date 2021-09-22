@@ -24,7 +24,7 @@ class DetailsPage {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: Center(child: 
             Text(title, textAlign: TextAlign.center, style: TextStyle(
-                fontSize: 35, fontWeight: FontWeight.w700, letterSpacing: 5, 
+                fontSize: 32, fontWeight: FontWeight.w700, letterSpacing: 5, 
                 color: CColors.gold, fontFamily: 'Obelisk'))),
           ),
             bottomContentText],

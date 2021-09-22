@@ -22,6 +22,7 @@ class CardLists {
                             return Padding(
                                 padding: const EdgeInsets.fromLTRB(10,70,10,90),
                                 child: Card(color: CColors.mainbg,
+                                    shadowColor: CColors.secondbg,
                                     elevation: 10,
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(20)),

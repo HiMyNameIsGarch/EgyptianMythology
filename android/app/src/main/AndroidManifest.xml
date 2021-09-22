@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.egyptianmythology">
    <application
-        android:label="egyptianmythology"
+        android:label="Mitologia Egipteana"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

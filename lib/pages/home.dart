@@ -13,16 +13,16 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  int selectedIndex = 1; // Start in middle
-  final List<Widget> _selectedPage = [Gods(), Creatures(), Myths(), World() ];
+  int selectedIndex = 0;
+  final List<Widget> _selectedPage = [World(), Gods(), Creatures(), Myths() ];
   SvgPicture getIcon(String name){
-      return SvgPicture.asset('assets/icons/$name.svg', color: CColors.gold);
+      return SvgPicture.asset('assets/icons/$name.svg', color: CColors.secondbg);
   }
   late List<SvgPicture> data = [
+    getIcon('world'),
     getIcon('gods'),
     getIcon('creatures'),
     getIcon('myths'),
-    getIcon('world'),
   ];
 
   Container buildNavBarItem(int i) {
@@ -31,6 +31,7 @@ class _HomeState extends State<Home> {
               onTap: () { setState(() { selectedIndex = i; }); },
               child: AnimatedContainer(
                   width: 40,
+                  curve: Curves.easeInOutCirc,
                   duration: const Duration(milliseconds: 500),
                   decoration: BoxDecoration(
                       border: i == selectedIndex ? Border(
@@ -54,6 +55,7 @@ class _HomeState extends State<Home> {
         body: _selectedPage[selectedIndex],
         bottomNavigationBar: Padding(padding: const EdgeInsets.all(20), 
             child: Material(elevation: 10, 
+                shadowColor: CColors.secondbg,
                 type: MaterialType.card,
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 color: CColors.mainbg,
