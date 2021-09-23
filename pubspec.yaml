@@ -36,6 +36,22 @@ dependencies:
   cupertino_icons: ^1.0.2
   introduction_screen: ^2.1.0
   flutter_svg: ^0.22.0
+  flutter_native_splash: ^1.2.3
+
+flutter_native_splash:
+  color: "#2D2D2F"
+  #background_image: "assets/background.png"
+  image: assets/splash_screen.png
+
+  #color_dark: "#042a49"
+  #background_image_dark: "assets/dark-background.png"
+  #image_dark: assets/splash-invert.png
+
+  android: true
+
+  android_gravity: center
+
+  fullscreen: true
 
 dev_dependencies:
   flutter_test:
