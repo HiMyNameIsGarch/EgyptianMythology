@@ -19,6 +19,12 @@ void main() {
   }   
   firstRoute = '/loading';
   runApp(MaterialApp(
+    theme: ThemeData.dark().copyWith(
+        unselectedWidgetColor: CColors.secondbg,
+        colorScheme: ColorScheme.fromSwatch(
+            accentColor: CColors.secondbg
+        ),
+    ),
     initialRoute: firstRoute,
     routes: {
         '/home': (context) => Home(),

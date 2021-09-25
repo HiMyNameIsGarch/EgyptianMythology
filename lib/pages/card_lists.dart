@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:egyptianmythology/resources/colors.dart';
+import 'package:egyptianmythology/pages/tabs/facts.dart';
 
 class CardLists {
 
@@ -9,7 +10,7 @@ class CardLists {
         backgroundColor: CColors.mainbg,
         body: Column(
             children: <Widget> [
-                const SizedBox(height: 60,),
+                const SizedBox(height: 60),
                 Text(title, style: TextStyle(
                     color: CColors.lace, fontWeight: FontWeight.bold, 
                     fontSize: 35, letterSpacing: 5, fontFamily: 'Isis')),
@@ -29,6 +30,11 @@ class CardLists {
                                         tag: data[index],
                                         child: GestureDetector(
                                             onTap: () { onCardTap(index); },
+                                            onLongPress: () {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) => Facts()));
+                                            },
                                             child: Container(
                                                 decoration: BoxDecoration(
                                                 border: Border.all(color: CColors.gold, width: 3),

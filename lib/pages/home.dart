@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   int selectedIndex = 0;
-  final List<Widget> _selectedPage = [World(), Gods(), Creatures(), Myths() ];
+  final List<Widget> _selectedPage = [World(), Gods(), Creatures(), Myths()];
   SvgPicture getIcon(String name){
       return SvgPicture.asset('assets/icons/$name.svg', color: CColors.secondbg);
   }
