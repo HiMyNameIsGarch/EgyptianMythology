@@ -37,14 +37,14 @@ class _FactsState extends State<Facts> {
   }
 
   final items = [
-    CheckBoxState(title: 'prima', value: false),
-    CheckBoxState(title: 'a doua', value: false),
-    CheckBoxState(title: 'a treia', value: false),
-    CheckBoxState(title: 'a patra', value: false),
+    CheckBoxState(title: '190    metri', value: false),
+    CheckBoxState(title: '1600   metri', value: false),
+    CheckBoxState(title: '10000  metri', value: false),
+    CheckBoxState(title: '3500   metri', value: false),
   ];
 
-  late String correct = items[2].title;
-  final String question = "?";
+  late String correct = items[1].title;
+  final String question = "Cati metrii de bandaj are in medie o mumie?";
 
   @override
   Widget build(BuildContext context) {

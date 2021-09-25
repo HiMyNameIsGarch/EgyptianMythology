@@ -12,7 +12,7 @@ class CardLists {
             children: <Widget> [
                 const SizedBox(height: 60),
                 Text(title, style: TextStyle(
-                    color: CColors.lace, fontWeight: FontWeight.bold, 
+                    color: CColors.blue, fontWeight: FontWeight.bold, 
                     fontSize: 35, letterSpacing: 5, fontFamily: 'Isis')),
                 Expanded(
                     child: PageView.builder(
