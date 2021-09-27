@@ -12,12 +12,11 @@ void main() {
   ));
 
   var currentDate = DateTime.now();
-  var releaseDate = DateTime(2021, 9, 27, 13, 35);
+  var releaseDate = DateTime(2021, 9, 27, 13, 36);
   late String firstRoute = '/loading';
   if(currentDate.compareTo(releaseDate).isNegative){
       firstRoute = '/notsofast';
   }   
-  firstRoute = '/loading';
   runApp(MaterialApp(
     theme: ThemeData.dark().copyWith(
         unselectedWidgetColor: CColors.secondbg,
